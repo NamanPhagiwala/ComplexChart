@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Tabs, Tab } from "@nextui-org/react";
-import React from "react";
+import React, { useState } from "react";
 import ChartFilters from "./chart-filters";
 
 const Menu = () => {
+  const [selected, setSelected] = useState("chart");
   return (
     <Tabs
       classNames={{
@@ -13,6 +15,8 @@ const Menu = () => {
         tabContent: "group-data-[selected=true]:text-[#06b6d4] text-lg mx-20",
         base: "w-full border-b border-[#eff1f3]",
       }}
+      selectedKey={selected}
+      onSelectionChange={(option) => setSelected(option as any)}
       color="primary"
       variant="underlined"
     >
@@ -25,7 +29,7 @@ const Menu = () => {
         }
       ></Tab>
       <Tab
-        key="music"
+        key="chart"
         title={
           <div className="flex items-center space-x-2 text-[#6f7177]">
             Chart
