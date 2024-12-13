@@ -9,12 +9,11 @@ const Menu = () => {
   return (
     <Tabs
       classNames={{
-        tabList: "gap-6 relative rounded-none p-0 border-divider px-20",
+        tabList: "gap-6 relative rounded-none p-0 border-divider",
         cursor: "bg-[#4B40EE]",
         tab: "max-w-fit px-0 h-12 text-left",
-        tabContent:
-          "max-w-fit group-data-[selected=true]:text-[#06b6d4] text-lg mx-20",
-        base: "w-[90%] border-b border-[#eff1f3]",
+        tabContent: "group-data-[selected=true]:text-[#06b6d4] text-lg",
+        base: "w-full border-b border-[#eff1f3]",
       }}
       selectedKey={selected}
       onSelectionChange={(option) => setSelected(option as any)}

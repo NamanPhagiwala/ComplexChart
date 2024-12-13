@@ -34,7 +34,7 @@ const ChartFilters = () => {
     setIsFullscreen(!isFullscreen);
   };
   return (
-    <div className="mx-20">
+    <div className="">
       <div className="grid grid-cols-12 justify-between items-center text-lg text-[#6f7177]">
         <div className="flex col-span-3 gap-8 p-4">
           <div

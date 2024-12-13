@@ -159,7 +159,7 @@ const Chart = ({ type }: ChartProps) => {
       .attr("opacity", 0.5);
 
     // Overlay for hover interaction
-    const interval = 1000;
+    const interval = 30;
     for (let i = interval; i < data.length; i += interval) {
       const xCoord = xScale(i);
       svg
