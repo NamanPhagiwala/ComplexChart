@@ -1,6 +1,6 @@
 const nextConfig = {
   reactStrictMode: true,
-  // distDir: "build",
+  distDir: "build",
   typescript: {
     ignoreBuildErrors: true,
   },
