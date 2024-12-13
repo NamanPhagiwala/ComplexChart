@@ -14,7 +14,7 @@ const Chart = ({ type }: ChartProps) => {
     d3.select(chartRef.current).select("svg").remove(); //to avoid random values get multiplied
 
     const margin = { top: 20, right: 100, bottom: 30, left: 50 };
-    const width = 1300;
+    const width = 1000;
     const height = 500 - margin.top - margin.bottom;
 
     // Generate sample data with 100 items

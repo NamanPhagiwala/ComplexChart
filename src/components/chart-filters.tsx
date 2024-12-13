@@ -14,7 +14,7 @@ const ChartFilters = () => {
     const chartElement = document.getElementById("chart");
     if (chartElement) {
       if (!isFullscreen) {
-        chartElement.style.width = "100%";
+        chartElement.style.width = "80vw";
         chartElement.style.height = "100vh";
         chartElement.style.position = "fixed";
         chartElement.style.top = "0";
@@ -22,7 +22,7 @@ const ChartFilters = () => {
         chartElement.style.zIndex = "100";
         chartElement.style.backgroundColor = "white";
       } else {
-        chartElement.style.width = "1300";
+        chartElement.style.width = "1000px";
         chartElement.style.height = "500px";
         chartElement.style.position = "relative";
         chartElement.style.top = "auto";
