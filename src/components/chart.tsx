@@ -37,7 +37,7 @@ const Chart = ({ type }: ChartProps) => {
       .scaleLinear()
       .domain([0, data.length - 1])
       .range([0, width]);
-    const yScale = d3.scaleLinear().domain([60000, 80000]).range([height, 0]);
+    const yScale = d3.scaleLinear().domain([55000, 80000]).range([height, 0]);
 
     // Axes
     const xAxis = d3
@@ -83,6 +83,15 @@ const Chart = ({ type }: ChartProps) => {
 
     const yAxisGroup = svg.append("g").call(yAxis);
 
+    xAxisGroup
+      .selectAll("path, line")
+      .style("stroke", "#e2e4e7") // Change color of the x-axis line
+      .style("stroke-width", 2);
+
+    yAxisGroup
+      .selectAll("path, line")
+      .style("stroke", "#e2e4e7") // Change color of the x-axis line
+      .style("stroke-width", 2);
     // line bar generator
     const line: any = d3
       .line()
