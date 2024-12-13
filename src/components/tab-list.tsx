@@ -10,9 +10,9 @@ const Menu = () => {
     <Tabs
       classNames={{
         tabList: "gap-6 relative rounded-none p-0 border-divider",
-        cursor: "bg-[#4B40EE]",
+        cursor: "bg-[#4B40EE] w-full",
         tab: "max-w-fit px-0 h-12 text-left",
-        tabContent: "group-data-[selected=true]:text-[#06b6d4] text-lg",
+        tabContent: "group-data-[selected=true]:text-[#06b6d4] px-2 text-lg",
         base: "w-full border-b border-[#eff1f3]",
       }}
       selectedKey={selected}
