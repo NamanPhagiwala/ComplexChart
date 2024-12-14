@@ -12,11 +12,12 @@ export default {
         circular: ["var(--font-circular-std)"],
       },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "white",
+        foreground: "black",
         primary: "#4B40EE",
       },
     },
   },
+
   plugins: [nextui()],
 } satisfies Config;

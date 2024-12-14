@@ -106,6 +106,38 @@ const Chart = ({ type }: ChartProps) => {
       .attr("stroke", "#4B40EE")
       .attr("stroke-width", 3)
       .attr("d", line);
+    svg
+      .append("defs")
+      .append("clipPath")
+      .attr("id", "clip")
+      .append("rect")
+      .attr("width", width)
+      .attr("height", height);
+
+    // Apply clipPath to the chart group
+    const chartGroup = svg.append("g").attr("clip-path", "url(#clip)");
+
+    // Apply the clip path to the chart group
+    const barData = Array.from({ length: 200 }, (_, i) => ({
+      x: i,
+      y: Math.random() * 3000 + 55000,
+    }));
+
+    // Define bar width (adjust spacing if needed)
+    const barWidth = width / barData.length - 2;
+
+    // Add Bars
+    chartGroup
+      .selectAll(".bar")
+      .data(barData)
+      .enter()
+      .append("rect")
+      .attr("class", "bar")
+      .attr("x", (d) => xScale(d.x) - barWidth / 2) // Center bars on x-axis points
+      .attr("y", (d) => yScale(d.y)) // Scale to height
+      .attr("width", barWidth)
+      .attr("height", (d) => height - yScale(d.y)) // Extend to the base of the chart
+      .attr("fill", "#e2e4e7");
 
     // to show the last value of the chart
     const lastValueGroup = svg.append("g");
@@ -290,6 +322,17 @@ const Chart = ({ type }: ChartProps) => {
           .y0(height) // Set y0 at the bottom of the chart
           .y1((d: any) => Math.max(0, Math.min(height, newYScale(d.y))))
       );
+      chartGroup
+        .selectAll(".bar")
+        .attr("x", (d: any) => newXScale(d.x) - barWidth / 2)
+        .attr("y", (d: any) => newYScale(d.y))
+        .attr("height", (d: any) => Math.max(0, height - newYScale(d.y)));
+      svg
+        .select("path") // Update line if it exists
+        .attr(
+          "d",
+          line.x((d: any) => newXScale(d.x)).y((d: any) => newYScale(d.y))
+        );
       updateLastValue(newXScale, newYScale);
     });
 
