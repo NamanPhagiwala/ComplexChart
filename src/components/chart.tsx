@@ -8,8 +8,9 @@ interface ChartProps {
   type: number;
   widthParent: number;
   hParent: number;
+  isFullScreen: boolean;
 }
-const Chart = ({ type, widthParent, hParent }: ChartProps) => {
+const Chart = ({ type, widthParent, hParent, isFullScreen }: ChartProps) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -33,8 +34,8 @@ const Chart = ({ type, widthParent, hParent }: ChartProps) => {
       .attr("height", height + margin.top + margin.bottom)
       .attr(
         "transform",
-        `translate(${width > 1300 ? margin.left : 0}, ${
-          width > 1300 ? 100 : margin.left
+        `translate(${isFullScreen ? margin.left : 0}, ${
+          isFullScreen ? 100 : margin.left
         })`
       )
       .append("g");

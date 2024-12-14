@@ -19,7 +19,7 @@ const ChartFilters = () => {
     const chartElement = document.getElementById("chart");
     if (chartElement) {
       if (!isFullscreen) {
-        const w = 1320;
+        const w = 1200;
         setWidth(w);
         setHeight(600);
         chartElement.style.width = "100%";
@@ -123,7 +123,12 @@ const ChartFilters = () => {
           </div>
         </div>
       </div>
-      <Chart type={active} widthParent={width} hParent={height} />
+      <Chart
+        type={active}
+        widthParent={width}
+        hParent={height}
+        isFullScreen={isFullscreen}
+      />
 
       {isFullscreen && (
         <div
