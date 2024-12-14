@@ -33,8 +33,8 @@ const Chart = ({ type, widthParent, hParent }: ChartProps) => {
       .attr("height", height + margin.top + margin.bottom)
       .attr(
         "transform",
-        `translate(${width > 1200 ? margin.left : 0}, ${
-          width > 1200 ? 100 : margin.left
+        `translate(${width > 1300 ? margin.left : 0}, ${
+          width > 1300 ? 100 : margin.left
         })`
       )
       .append("g");
@@ -248,8 +248,8 @@ const Chart = ({ type, widthParent, hParent }: ChartProps) => {
       .attr("fill", "none")
       .attr(
         "transform",
-        `translate(${width > 1200 ? margin.left : 0}, ${
-          width > 1200 ? 100 : margin.left
+        `translate(${width > 1300 ? margin.left : 0}, ${
+          width > 1300 ? 100 : margin.left
         })`
       )
       .attr("pointer-events", "all")
