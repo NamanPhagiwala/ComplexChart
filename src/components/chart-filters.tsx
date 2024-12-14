@@ -2,11 +2,15 @@
 import React, { useState } from "react";
 import Chart from "./chart";
 import Image from "next/image";
-
+declare global {
+  interface Window {
+    name: string;
+  }
+}
 const ChartFilters = () => {
   const [active, setactive] = useState<number>(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [width, setWidth] = useState(840);
+  const [width, setWidth] = useState(1296);
   const [height, setHeight] = useState(380);
   const updateChart = (type: number) => {
     setactive(type);
@@ -15,7 +19,8 @@ const ChartFilters = () => {
     const chartElement = document.getElementById("chart");
     if (chartElement) {
       if (!isFullscreen) {
-        setWidth(1200);
+        const w = window.screen.availWidth;
+        setWidth(w);
         setHeight(600);
         chartElement.style.width = "100%";
         chartElement.style.height = "100%";
@@ -25,7 +30,8 @@ const ChartFilters = () => {
         chartElement.style.zIndex = "100";
         chartElement.style.backgroundColor = "white";
       } else {
-        setWidth(840);
+        const w = window.screen.availWidth * 0.9;
+        setWidth(w);
         setHeight(380);
         chartElement.style.width = "100%";
         chartElement.style.height = "100%";
@@ -40,7 +46,7 @@ const ChartFilters = () => {
   };
   return (
     <div className="">
-      <div className="grid grid-cols-12 justify-between items-center text-lg text-[#6f7177]">
+      <div className="flex justify-between items-center text-lg text-[#6f7177]">
         <div className="flex col-span-3 gap-8 p-4">
           <div
             className="flex gap-2 justify-center items-center cursor-pointer"

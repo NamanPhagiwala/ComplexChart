@@ -31,12 +31,14 @@ const Chart = ({ type, widthParent, hParent }: ChartProps) => {
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
-      .append("g")
       .attr(
         "transform",
-        `translate(${width > 900 ? margin.left : 0}, ${margin.top})`
-      );
-
+        `translate(${width > 1200 ? margin.left : 0}, ${
+          width > 1200 ? 100 : margin.left
+        })`
+      )
+      .append("g");
+    console.log(width);
     // Scales
     const xScale = d3
       .scaleLinear()
@@ -244,6 +246,12 @@ const Chart = ({ type, widthParent, hParent }: ChartProps) => {
       .attr("width", width)
       .attr("height", height)
       .attr("fill", "none")
+      .attr(
+        "transform",
+        `translate(${width > 1200 ? margin.left : 0}, ${
+          width > 1200 ? 100 : margin.left
+        })`
+      )
       .attr("pointer-events", "all")
       .on("mousemove", (event) => {
         const [mx, my] = d3.pointer(event);
