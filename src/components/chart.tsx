@@ -246,12 +246,12 @@ const Chart = ({ type, widthParent, hParent }: ChartProps) => {
       .attr("width", width)
       .attr("height", height)
       .attr("fill", "none")
-      .attr(
-        "transform",
-        `translate(${width > 1300 ? margin.left : 0}, ${
-          width > 1300 ? 100 : margin.left
-        })`
-      )
+      // .attr(
+      //   "transform",
+      //   `translate(${width > 1300 ? margin.left : 0}, ${
+      //     width > 1300 ? 100 : margin.left
+      //   })`
+      // )
       .attr("pointer-events", "all")
       .on("mousemove", (event) => {
         const [mx, my] = d3.pointer(event);

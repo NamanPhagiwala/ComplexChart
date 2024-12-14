@@ -19,7 +19,7 @@ const ChartFilters = () => {
     const chartElement = document.getElementById("chart");
     if (chartElement) {
       if (!isFullscreen) {
-        const w = 1400;
+        const w = 1350;
         setWidth(w);
         setHeight(600);
         chartElement.style.width = "100%";
