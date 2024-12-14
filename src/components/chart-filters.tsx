@@ -18,7 +18,7 @@ const ChartFilters = () => {
         setWidth(1300);
         setHeight(800);
         chartElement.style.width = "100%";
-        chartElement.style.height = "100vh";
+        chartElement.style.height = "100%";
         chartElement.style.position = "fixed";
         chartElement.style.top = "0";
         chartElement.style.left = "0";

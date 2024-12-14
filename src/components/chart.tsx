@@ -32,7 +32,10 @@ const Chart = ({ type, widthParent, hParent }: ChartProps) => {
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
-      .attr("transform", `translate(${margin.left}, ${margin.top})`);
+      .attr(
+        "transform",
+        `translate(${width > 900 ? margin.left : 0}, ${margin.top})`
+      );
 
     // Scales
     const xScale = d3
