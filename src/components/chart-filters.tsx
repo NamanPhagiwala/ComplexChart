@@ -10,7 +10,7 @@ declare global {
 const ChartFilters = () => {
   const [active, setactive] = useState<number>(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [width, setWidth] = useState(1296);
+  const [width, setWidth] = useState(1200);
   const [height, setHeight] = useState(380);
   const updateChart = (type: number) => {
     setactive(type);
@@ -19,7 +19,7 @@ const ChartFilters = () => {
     const chartElement = document.getElementById("chart");
     if (chartElement) {
       if (!isFullscreen) {
-        const w = window.screen.availWidth;
+        const w = 1400;
         setWidth(w);
         setHeight(600);
         chartElement.style.width = "100%";
@@ -30,8 +30,7 @@ const ChartFilters = () => {
         chartElement.style.zIndex = "100";
         chartElement.style.backgroundColor = "white";
       } else {
-        const w = window.screen.availWidth * 0.9;
-        setWidth(w);
+        setWidth(1200);
         setHeight(380);
         chartElement.style.width = "100%";
         chartElement.style.height = "100%";
