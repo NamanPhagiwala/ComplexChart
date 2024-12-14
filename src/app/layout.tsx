@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`light text-black ${circular.variable} antialiased my-20 bg-white`}
+        className={`light text-black ${circular.variable} antialiased my-10 bg-white`}
       >
         {children}
       </body>
