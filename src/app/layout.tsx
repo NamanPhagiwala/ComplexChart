@@ -8,9 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`light text-black ${circular.variable} antialiased my-10 bg-white`}
-      >
+      <body className={`text-black ${circular.variable} mt-10 bg-white`}>
         {children}
       </body>
     </html>

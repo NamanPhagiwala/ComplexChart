@@ -8,7 +8,7 @@ const Price = () => {
   return (
     <div className="grid gap-3">
       <div className="flex items-start gap-2">
-        <div className="text-7xl">{price.toLocaleString()}</div>
+        <div className="text-7xl leading-none">{price.toLocaleString()}</div>
         <div className="text-2xl text-[#BDBEBF]">USD</div>
       </div>
       <div className="text-green-500 text-lg"> {margin} </div>

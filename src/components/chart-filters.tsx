@@ -6,7 +6,8 @@ import Image from "next/image";
 const ChartFilters = () => {
   const [active, setactive] = useState<number>(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
-
+  const [width, setWidth] = useState(840);
+  const [height, setHeight] = useState(380);
   const updateChart = (type: number) => {
     setactive(type);
   };
@@ -14,6 +15,8 @@ const ChartFilters = () => {
     const chartElement = document.getElementById("chart");
     if (chartElement) {
       if (!isFullscreen) {
+        setWidth(1300);
+        setHeight(800);
         chartElement.style.width = "100%";
         chartElement.style.height = "100vh";
         chartElement.style.position = "fixed";
@@ -22,6 +25,8 @@ const ChartFilters = () => {
         chartElement.style.zIndex = "100";
         chartElement.style.backgroundColor = "white";
       } else {
+        setWidth(840);
+        setHeight(380);
         chartElement.style.width = "100%";
         chartElement.style.height = "100%";
         chartElement.style.position = "relative";
@@ -59,7 +64,7 @@ const ChartFilters = () => {
             <div>Compare</div>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex">
           <div
             onClick={() => updateChart(1)}
             className={`text-lg text-[#6f7177] px-4 py-1 cursor-pointer ${
@@ -113,7 +118,7 @@ const ChartFilters = () => {
           </div>
         </div>
       </div>
-      <Chart type={active} />
+      <Chart type={active} widthParent={width} hParent={height} />
 
       {isFullscreen && (
         <div

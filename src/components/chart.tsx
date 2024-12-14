@@ -6,16 +6,18 @@ import * as d3 from "d3";
 
 interface ChartProps {
   type: number;
+  widthParent: number;
+  hParent: number;
 }
-const Chart = ({ type }: ChartProps) => {
+const Chart = ({ type, widthParent, hParent }: ChartProps) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
     d3.select(chartRef.current).select("svg").remove(); //to avoid random values get multiplied
 
     const margin = { top: 20, right: 100, bottom: 30, left: 50 };
-    const width = 1100;
-    const height = 500 - margin.top - margin.bottom;
+    const width = widthParent;
+    const height = hParent - margin.top - margin.bottom;
 
     // Generate sample data with 100 items
     const data = Array.from({ length: 200 }, (_, i) => ({
@@ -46,7 +48,28 @@ const Chart = ({ type }: ChartProps) => {
       .tickSize(-type) // to create bars on the x axis Inverted
       .tickPadding(50);
     const yAxis = d3.axisLeft(yScale).ticks(0);
+    const yScaleRight = d3
+      .scaleLinear()
+      .domain(yScale.domain())
+      .range([height, 0]);
 
+    const yAxisRight = d3.axisRight(yScaleRight).ticks(0); // Adjust ticks as needed
+
+    const yAxisRightGroup = svg
+      .append("g")
+      .attr("transform", `translate(${width}, 0)`) // Position at the end of the X-axis
+      .call(yAxisRight);
+
+    // Style the parallel Y-axis
+    yAxisRightGroup
+      .selectAll("path, line")
+      .style("stroke", "#e2e4e7") // Customize color
+      .style("stroke-width", 2);
+
+    yAxisRightGroup
+      .selectAll("text")
+      .style("fill", "#6c757d") // Customize text color
+      .style("font-size", "12px"); // Customize text size
     const defs = svg.append("defs");
     //color to fill
     const gradient = defs
@@ -341,7 +364,7 @@ const Chart = ({ type }: ChartProps) => {
     return () => {
       d3.select(chartRef.current).select("svg").remove();
     };
-  }, [type]);
+  }, [type, widthParent, hParent]);
 
   return (
     <div
