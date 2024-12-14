@@ -15,8 +15,8 @@ const ChartFilters = () => {
     const chartElement = document.getElementById("chart");
     if (chartElement) {
       if (!isFullscreen) {
-        setWidth(1300);
-        setHeight(800);
+        setWidth(1200);
+        setHeight(600);
         chartElement.style.width = "100%";
         chartElement.style.height = "100%";
         chartElement.style.position = "fixed";
